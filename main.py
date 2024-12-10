@@ -7,7 +7,6 @@ def main():
 	clock = pygame.time.Clock()
 	dt = 0
 	screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-	black = (0,0,0)
 
 	print("Starting asteroids!")
 	print(f"Screen width: {SCREEN_WIDTH}")		
@@ -28,7 +27,7 @@ def main():
 		for obj in updatable:
 			obj.update(dt)
 			
-		screen.fill(black)
+		screen.fill(BLACK)
 		
 		for obj in drawable:
 			obj.draw(screen)
