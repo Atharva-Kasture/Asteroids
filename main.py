@@ -32,6 +32,8 @@ def main():
 	AsteroidField.containers = (updatable,)
 	asteroid_field = AsteroidField()
 
+
+
 	while True:
 		
 		for event in pygame.event.get():
@@ -41,14 +43,20 @@ def main():
 		for obj in updatable:
 			obj.update(dt)
 
+
 		for obj in asteroids:
 			value = obj.check_collisions(player)
 			if value == True:
 				print("Game over!")
 				sys.exit()
-			
-		
-			
+
+		for asteroid in asteroids:
+			for shot in shots:
+				if asteroid.check_collisions(shot):
+					asteroid.kill()
+					shot.kill()
+
+
 		screen.fill(BLACK)
 		
 		for obj in drawable:
